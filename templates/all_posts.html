@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/all_posts.css' %}" rel="stylesheet">
+{% endblock %}  
+
+{% block content %}
+<div style="display: flex; justify-content: center;">
+    {% for post in posts %}
+        <div class="card">
+            <img src="{{ post.image.url }}" class="card__image" alt="brown couch" />
+            <div class="card__content">
+                <span class="card__title">Title : {{ post.title }}<span>
+                <p class="card__date">Content : {{ post.content }}</p>
+                <p class="card__date">User : {{ post.user.username }}</p>
+            </div>
+          </div>
+    {% endfor %}
+</div>	
+{% endblock content %}
